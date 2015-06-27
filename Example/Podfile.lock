@@ -1,0 +1,14 @@
+PODS:
+  - OTEmbeddedKeyboard (0.1.0)
+
+DEPENDENCIES:
+  - OTEmbeddedKeyboard (from `../`)
+
+EXTERNAL SOURCES:
+  OTEmbeddedKeyboard:
+    :path: ../
+
+SPEC CHECKSUMS:
+  OTEmbeddedKeyboard: 5b32ecd0fc42e73b936898f817ccbf407325e289
+
+COCOAPODS: 0.37.2
