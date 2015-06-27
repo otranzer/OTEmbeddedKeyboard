@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'OTEmbeddedKeyboard_Example', :exclusive => true do
+  pod "OTEmbeddedKeyboard", :path => "../"
+end
+
+target 'OTEmbeddedKeyboard_Tests', :exclusive => true do
+  pod "OTEmbeddedKeyboard", :path => "../"
+
+  
+end
