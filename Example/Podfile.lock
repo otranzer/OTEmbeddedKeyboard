@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  OTEmbeddedKeyboard: 5b32ecd0fc42e73b936898f817ccbf407325e289
+  OTEmbeddedKeyboard: 837dc8325b17ccf3b1506cc0e1a406d2fdc8391e
 
 COCOAPODS: 0.37.2
