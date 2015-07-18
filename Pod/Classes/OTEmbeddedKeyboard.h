@@ -22,6 +22,7 @@
 - (void)didClickOnNumber:(NSUInteger)number;
 - (void)didAddComma;
 - (void)didDeleteOneNumber;
+- (void)didLongPressDelete;
 
 @end
 

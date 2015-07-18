@@ -62,6 +62,8 @@
         [embeddedKeyboard.buttonPoint addTarget:embeddedKeyboard action:@selector(didClick:) forControlEvents:UIControlEventTouchUpInside];
         [embeddedKeyboard.buttonDelete addTarget:embeddedKeyboard action:@selector(didClick:) forControlEvents:UIControlEventTouchUpInside];
         
+        UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:embeddedKeyboard action:@selector(didLongDelete:)];
+        [embeddedKeyboard.buttonDelete addGestureRecognizer:longPress];
         return embeddedKeyboard;
     }
     else
@@ -175,6 +177,11 @@
             NSLog(@"Error: unrecognised tag");
             break;
     }
+}
+
+- (void)didLongDelete:(id)sender
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(didDeleteOneNumber)]) [self.delegate didLongPressDelete];
 }
 
 @end
