@@ -14,6 +14,10 @@
 - (NSArray *)labelsForKeyboard;
 - (UIColor *)tintColorForButtons;
 - (double)fontSizeForButtons;
+- (NSString *)fontNameForButtons;
+- (UIImage *)horizontalDividerImage;
+- (UIImage *)vericalDividerImage;
+- (UIImage *)deleteImage;
 
 @end
 

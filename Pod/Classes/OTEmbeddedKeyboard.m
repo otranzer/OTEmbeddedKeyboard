@@ -22,6 +22,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *button0;
 @property (weak, nonatomic) IBOutlet UIButton *buttonDelete;
 
+@property (weak, nonatomic) IBOutlet UIImageView *verticalDividerImage1;
+@property (weak, nonatomic) IBOutlet UIImageView *verticalDividerImage2;
+@property (weak, nonatomic) IBOutlet UIImageView *horizontalDividerImage1;
+@property (weak, nonatomic) IBOutlet UIImageView *horizontalDividerImage2;
+@property (weak, nonatomic) IBOutlet UIImageView *horizontalDividerImage3;
+@property (weak, nonatomic) IBOutlet UIImageView *deleteImage;
 
 @end
 
@@ -112,21 +118,52 @@
         self.buttonDelete.tintColor = buttonTintColor;
     }
     
-    // Font size
+    // Font name and size
+    NSString *fontName = @"Helvetica";
+    double fontSize = 16;
+    if (self.datasource && [self.datasource respondsToSelector:@selector(fontNameForButtons)]) {
+        fontName = [self.datasource fontNameForButtons];
+    }
     if (self.datasource && [self.datasource respondsToSelector:@selector(fontSizeForButtons)]) {
-        double fontSize = [self.datasource fontSizeForButtons];
-        self.button0.titleLabel.font = [UIFont systemFontOfSize:fontSize];
-        self.button1.titleLabel.font = [UIFont systemFontOfSize:fontSize];
-        self.button2.titleLabel.font = [UIFont systemFontOfSize:fontSize];
-        self.button3.titleLabel.font = [UIFont systemFontOfSize:fontSize];
-        self.button4.titleLabel.font = [UIFont systemFontOfSize:fontSize];
-        self.button5.titleLabel.font = [UIFont systemFontOfSize:fontSize];
-        self.button6.titleLabel.font = [UIFont systemFontOfSize:fontSize];
-        self.button7.titleLabel.font = [UIFont systemFontOfSize:fontSize];
-        self.button8.titleLabel.font = [UIFont systemFontOfSize:fontSize];
-        self.button9.titleLabel.font = [UIFont systemFontOfSize:fontSize];
-        self.buttonPoint.titleLabel.font = [UIFont systemFontOfSize:fontSize];
-        self.buttonDelete.titleLabel.font = [UIFont systemFontOfSize:fontSize];
+        fontSize = [self.datasource fontSizeForButtons];
+    }
+    
+    self.button0.titleLabel.font = [UIFont fontWithName:fontName size:fontSize];
+    self.button1.titleLabel.font = [UIFont fontWithName:fontName size:fontSize];
+    self.button2.titleLabel.font = [UIFont fontWithName:fontName size:fontSize];
+    self.button3.titleLabel.font = [UIFont fontWithName:fontName size:fontSize];
+    self.button4.titleLabel.font = [UIFont fontWithName:fontName size:fontSize];
+    self.button5.titleLabel.font = [UIFont fontWithName:fontName size:fontSize];
+    self.button6.titleLabel.font = [UIFont fontWithName:fontName size:fontSize];
+    self.button7.titleLabel.font = [UIFont fontWithName:fontName size:fontSize];
+    self.button8.titleLabel.font = [UIFont fontWithName:fontName size:fontSize];
+    self.button9.titleLabel.font = [UIFont fontWithName:fontName size:fontSize];
+    self.buttonPoint.titleLabel.font = [UIFont fontWithName:fontName size:fontSize];
+    self.buttonDelete.titleLabel.font = [UIFont fontWithName:fontName size:fontSize];
+    
+    // Divider
+    if (self.datasource && [self.datasource respondsToSelector:@selector(horizontalDividerImage)]) {
+        self.horizontalDividerImage1.image = [self.datasource horizontalDividerImage];
+        self.horizontalDividerImage2.image = [self.datasource horizontalDividerImage];
+        self.horizontalDividerImage3.image = [self.datasource horizontalDividerImage];
+    }
+    else {
+        self.horizontalDividerImage1.backgroundColor = [UIColor whiteColor];
+        self.horizontalDividerImage2.backgroundColor = [UIColor whiteColor];
+        self.horizontalDividerImage3.backgroundColor = [UIColor whiteColor];
+    }
+    if (self.datasource && [self.datasource respondsToSelector:@selector(vericalDividerImage)]) {
+        self.verticalDividerImage1.image = [self.datasource vericalDividerImage];
+        self.verticalDividerImage2.image = [self.datasource vericalDividerImage];
+    }
+    else {
+        self.verticalDividerImage1.backgroundColor = [UIColor whiteColor];
+        self.verticalDividerImage2.backgroundColor = [UIColor whiteColor];
+    }
+    
+    // Delete image
+    if (self.datasource && [self.datasource respondsToSelector:@selector(deleteImage)]) {
+        self.deleteImage.image = [self.datasource deleteImage];
     }
 
 }
